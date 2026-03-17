@@ -1,0 +1,24 @@
+# Rust
+/target/
+Cargo.lock
+
+# Node / Vue
+ui/node_modules/
+ui/dist/
+
+# Tauri
+src-tauri/target/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
