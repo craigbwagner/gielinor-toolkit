@@ -7,11 +7,12 @@ Get data flowing from the RS3 APIs through the Rust backend to a basic Vue front
 ### rs3-api crate
 - [ ] Set up `reqwest` + `tokio` dependencies
 - [ ] Create `Rs3Client` struct with shared `reqwest::Client`
-- [ ] Implement hiscores lite parser — map CSV positions to skills and bosses
+- [ ] Implement hiscores lite parser — map CSV positions to skills and activities
 - [ ] Implement RuneMetrics profile fetcher — deserialize JSON into typed structs
+- [ ] Implement RuneMetrics activity feed parser — extract boss kill events for auto-incrementing kill counts
 - [ ] Implement Weird Gloop price fetcher — `/latest` endpoint for item prices
 - [ ] Implement GE Database item detail fetcher — for item metadata and icons
-- [ ] Define skill ID and boss ID mappings (position → name)
+- [ ] Define skill ID and activity ID mappings (position → name)
 - [ ] Add error types for API failures (network, parse, not found, private profile)
 - [ ] Write unit tests with sample API responses
 

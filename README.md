@@ -7,8 +7,8 @@ A desktop companion app for RuneScape 3, focused on PvM tracking, drop logging, 
 ### Boss Tracker
 
 **Dashboard**
-- Grid of boss cards, each showing the boss name, kill count (from the RS3 hiscores API), and total wealth earned
-- Kill counts update automatically when the app fetches fresh data from the API
+- Grid of boss cards, each showing the boss name, kill count, and total wealth earned
+- Kill counts are set manually once per boss (initial count from in-game boss log), then auto-incremented by parsing the RuneMetrics activity feed for new kills
 
 **Boss Detail View**
 - Click any boss card to open a detailed view for that boss

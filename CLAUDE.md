@@ -16,6 +16,7 @@ A desktop RS3 (RuneScape 3) companion app for PvM tracking, drop logging, wealth
 - **Preferred price source:** Weird Gloop API (not the official GE API)
 - **All RS3 API calls go through the Rust backend** — most lack CORS headers
 - **Drop logging is manual** — RS3 doesn't expose drop logs via API
+- **Boss kill tracking is hybrid** — initial count entered manually, then auto-incremented from RuneMetrics activity feed. RS3 hiscores does NOT include boss kills (OSRS only).
 
 ## Code Conventions
 - No `any` type in TypeScript

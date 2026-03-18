@@ -12,22 +12,26 @@ All API calls are made from the Rust backend (`rs3-api` crate). The frontend nev
 | **Response** | Plain text CSV |
 
 ### Response Format
-Each line contains comma-separated values. Skills come first (rank, level, XP), followed by activities/bosses (rank, count).
+Each line contains comma-separated values. Skills come first (30 entries, 3 values each: rank, level, XP), followed by activities (31 entries, 2 values each: rank, count).
 
 ```
 104122,2993,834489804    ← Overall (rank, total level, total XP)
 89086,106,27247418       ← Attack (rank, level, XP)
-...                      ← remaining skills
-42422,1212               ← first activity/boss (rank, count)
-18514,1607               ← second activity/boss
-...
+...                      ← remaining skills (30 total)
+-1,0                     ← Bounty Hunter (rank, count)
+42422,1212               ← BA Attacker (rank, count)
+...                      ← remaining activities (31 total)
 ```
 
-A value of `-1` means unranked (not enough kills/XP to appear on hiscores).
+A value of `-1` means unranked (not enough activity to appear on hiscores).
+
+### Activities (in order, positions 31-61)
+Bounty Hunter, BH Rogues, Dominion Tower, Crucible, Castle Wars, BA Attacker, BA Defender, BA Collector, BA Healer, Duel Tournament, Mobilising Armies, Conquest, Fist of Guthix, GG Athletics, GG Resource Race, WE2 Armadyl Contribution, WE2 Bandos Contribution, WE2 Armadyl PvP, WE2 Bandos PvP, Heist Guard, Heist Robber, CFP 5 Games, AF15 Cow Tipping, AF15 Rat Kills, RuneScore, Clue Easy, Clue Medium, Clue Hard, Clue Elite, Clue Master, Leagues
 
 ### Notes
-- The order of skills and bosses is fixed but not documented in the response — must be mapped by position
-- Boss kill counts are the entries after all 30 skills (including Invention, Archaeology, Necromancy)
+- The order of skills and activities is fixed but not documented in the response — must be mapped by position
+- **RS3 hiscores does NOT include boss kill counts** — that is OSRS only
+- Boss kills are tracked via RuneMetrics activity feed instead (see below)
 
 ---
 
