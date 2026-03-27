@@ -55,14 +55,18 @@ impl Rs3Client {
         let response = self.http.get(&url).send().await?;
         let body = response.text().await?;
 
-        // Response is a map of string IDs to price entries
-        let raw: HashMap<String, RawPriceEntry> =
+        // Response is a map of string IDs to price entries.
+        // Items not found return `false` instead of an object,
+        // so we parse as Value first and filter.
+        let raw: HashMap<String, serde_json::Value> =
             serde_json::from_str(&body).map_err(|e| {
                 Rs3ApiError::Parse(format!("Failed to parse Weird Gloop response: {}", e))
             })?;
 
         let prices = raw
             .into_values()
+            .filter(|v| v.is_object())
+            .filter_map(|v| serde_json::from_value::<RawPriceEntry>(v).ok())
             .map(|entry| {
                 let id = entry.id.parse::<u32>().unwrap_or(0);
                 ItemPrice {
