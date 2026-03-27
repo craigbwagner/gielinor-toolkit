@@ -1,7 +1,9 @@
 pub mod client;
 pub mod error;
+pub mod ge;
 pub mod hiscores;
 pub mod models;
+pub mod prices;
 pub mod runemetrics;
 
 pub use client::Rs3Client;
