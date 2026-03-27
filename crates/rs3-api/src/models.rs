@@ -35,6 +35,9 @@ pub struct RuneMetricsProfile {
     pub logged_in: bool,
     pub skills: Vec<RuneMetricsSkill>,
     pub activities: Vec<Activity>,
+    pub quests_complete: u16,
+    pub quests_started: u16,
+    pub quests_not_started: u16,
 }
 
 /// A skill from the RuneMetrics profile.
